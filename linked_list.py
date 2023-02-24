@@ -11,7 +11,7 @@ class Node:
         self.data = data
         
     def __repr__(self):
-        return "<Node data: %s"> % self.data
+        return "<Node data: %s>" % self.data
     
 class linked_list:
     """
@@ -37,3 +37,11 @@ class linked_list:
             current = current.next_node
             
         return count
+    
+    def add(self,data):
+        """
+    adds a new node containg data at the head of the list
+    takes o(n)"""
+        new_node = Node(data)
+        new_node.next_node = self.head
+        self.head = new_node
