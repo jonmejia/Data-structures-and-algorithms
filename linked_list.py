@@ -21,6 +21,7 @@ class linked_list:
     def __init__(self):
         self.head = None
         
+                
     def is_empty(self):
         return(self.head ==None)
     
@@ -45,3 +46,33 @@ class linked_list:
         new_node = Node(data)
         new_node.next_node = self.head
         self.head = new_node
+        
+    def search(self,key):
+        """
+        Search for the first node containing data that matches the key
+        return the node or none if not found
+        
+        takes O(n)"""
+       current = self.head
+       while current:
+           if current.data == key:
+               return current
+           else:
+               current = current.next_node 
+            return None
+        
+     def __repr__(self):
+        """Returns a string representation of the list
+        takes O(n) time
+        """
+        nodes = []
+        current = self.head
+        while current:
+            if current is self.head:
+                nodes.append(f"[Head: {current.data}]")
+            elif current.next_node is None:
+                nodes.append(f"[Tail: {current.data}]")
+            else:
+                nodes.append(f"[{current.data}]")
+            current = current.next_node
+        return'-> '.join(nodes)
